@@ -1,4 +1,5 @@
-import { Column, CreatedAt, DataType, Model, PrimaryKey, Table, Unique, UpdatedAt } from "sequelize-typescript";
+import { Column, CreatedAt, DataType, HasMany, Model, PrimaryKey, Table, Unique, UpdatedAt } from "sequelize-typescript";
+import { Bookmark } from "./bookmark.model";
 
 @Table({ tableName: 'users' })
 export class User extends Model {
@@ -18,6 +19,9 @@ export class User extends Model {
 
     @Column({ type: DataType.STRING })
     lastname: string;
+
+    @HasMany(() => Bookmark)
+    bookmarks: Bookmark[];
 
     @CreatedAt
     created_at: Date;

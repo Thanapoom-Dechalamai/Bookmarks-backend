@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Bookmark } from 'src/models/bookmark.model';
+import {
+    RequestCreateBookmarkDto,
+    RequestUpdateBookmarkDto
+} from './dto';
 
 @Injectable()
 export class BookmarkService {
     constructor(
         @InjectModel(Bookmark)
         private bookmarkModel: typeof Bookmark
-
-
     ) { }
 
     findAll() {
@@ -19,15 +21,15 @@ export class BookmarkService {
         return 'find one';
     }
 
-    create() {
+    create(dto: RequestCreateBookmarkDto) {
         return 'create';
     }
 
-    update() {
+    update(dto: RequestUpdateBookmarkDto) {
         return 'update';
     }
 
-    delete() {
+    delete(id: string) {
         return 'delete';
     }
 }

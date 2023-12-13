@@ -7,7 +7,6 @@ export class User extends Model {
     @Column({ type: DataType.UUID, defaultValue: DataType.UUIDV4 })
     id: string;
 
-    @Unique
     @Column({ type: DataType.STRING })
     email: string;
 

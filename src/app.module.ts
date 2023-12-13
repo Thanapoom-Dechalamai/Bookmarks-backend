@@ -4,9 +4,8 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
-import { BookmarkService } from './bookmark/bookmark.service';
-import { BookmarkController } from './bookmark/bookmark.controller';
 import { BookmarkModule } from './bookmark/bookmark.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -14,8 +13,13 @@ import { BookmarkModule } from './bookmark/bookmark.module';
     DatabaseModule,
     AuthModule,
     BookmarkModule,
+    UserModule,
   ],
-  controllers: [AppController, BookmarkController],
-  providers: [AppService, BookmarkService],
+  controllers: [
+    AppController
+  ],
+  providers: [
+    AppService
+  ],
 })
 export class AppModule { }
